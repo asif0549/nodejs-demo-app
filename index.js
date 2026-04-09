@@ -3,6 +3,7 @@ const app=express();
 
 app.get("/",(req,res)=>{
     res.send("CI/CD Pipeline is working successfully!");
+    res.send("🔥 Auto Deploy Working!");
 });
 
 app.listen(3000,()=>{
