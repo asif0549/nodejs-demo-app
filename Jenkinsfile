@@ -2,20 +2,14 @@ pipeline {
     agent any
 
     stages {
-        stage('Install') {
-            steps {
-                sh 'apt-get update && apt-get install -y nodejs npm'
-                sh 'npm install'
-            }
-        }
 
-        stage('Build Docker') {
+        stage('Build Docker Image') {
             steps {
                 sh 'docker build -t nodejs-demo-app .'
             }
         }
 
-        stage('Deploy') {
+        stage('Run Container') {
             steps {
                 sh 'docker stop node-app || true'
                 sh 'docker rm node-app || true'
